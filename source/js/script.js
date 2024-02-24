@@ -2,60 +2,6 @@
 
   $("#main").fitVids();
 
-  // Share
-  $('body').on('click', function(){
-    $('.article-share-box.on').removeClass('on');
-  }).on('click', '.article-share-link', function(e){
-    e.stopPropagation();
-
-    var $this = $(this),
-      url = $this.attr('data-url'),
-      encodedUrl = encodeURIComponent(url),
-      id = 'article-share-box-' + $this.attr('data-id'),
-      title = $this.attr('data_title'),
-      summary = $this.attr('data_summary'),
-      offset = $this.offset();
-
-    if ($('#' + id).length){
-      var box = $('#' + id);
-
-      if (box.hasClass('on')){
-        box.removeClass('on');
-        return;
-      }
-    } else {
-      var html = [
-        '<div id="' + id + '" class="article-share-box">',
-          '<div class="article-share-links">',
-            '<a href="http://v.t.sina.com.cn/share/share.php?url=' + encodedUrl + '&title=' + summary + '" class="article-share-weibo" target="_blank" title="Weibo"></a>',
-            '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&title=' + title + '&description=' + summary + '" class="article-share-renren" target="_blank" title="Renren"></a>',
-            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
-          '</div>',
-        '</div>'
-      ].join('');
-
-      var box = $(html);
-
-      $('body').append(box);
-    }
-
-    $('.article-share-box.on').hide();
-
-    box.css({
-      top: offset.top + 30,
-      left: offset.left + 50
-    }).addClass('on');
-  }).on('click', '.article-share-box', function(e){
-    e.stopPropagation();
-  }).on('click', '.article-share-box-input', function(){
-    $(this).select();
-  }).on('click', '.article-share-box-link', function(e){
-    e.preventDefault();
-    e.stopPropagation();
-
-    window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-  });
-
   // Caption
   var path = window.location.pathname;
   var reg = new RegExp('^/page\\/\\d+\\/');

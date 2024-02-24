@@ -25,8 +25,8 @@ pages:
 - about
 - wiki
 
-wiki_dir: wiki
-wiki_info:
+# wiki_dir: wiki
+# wiki_info:
 
 # Sidebar
 sidebar: right
@@ -56,12 +56,12 @@ links:
 - name: Github
   url: https://github.com/mhohai
   logo: github
-- name: Facebook
-  url: https://www.facebook.com/gshmu
-  logo: facebook
 - name: Twitter
   url: https://twitter.com/gshmu
   logo: twitter
+- name: Facebook
+  url: https://www.facebook.com/gshmu
+  logo: facebook
 
 feed:
   type: atom
